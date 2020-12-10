@@ -17,10 +17,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private:
+    void UpdateTable();
 
 private slots:
     void on_rowsSpinBox_valueChanged(int arg1);
-
     void on_columnsSpinBox_valueChanged(int arg1);
 
 private:
