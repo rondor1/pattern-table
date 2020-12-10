@@ -5,6 +5,7 @@
 
 
 class CustomTable;
+class CustomShapeDelegate;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,5 +28,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     CustomTable* table;
+    CustomShapeDelegate* delegate;
 };
 #endif // MAINWINDOW_H

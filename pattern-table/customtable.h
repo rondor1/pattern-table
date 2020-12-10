@@ -2,6 +2,7 @@
 #define CUSTOMTABLE_H
 
 #include <QAbstractTableModel>
+#include "customshape.h"
 
 class CustomTable : public QAbstractTableModel
 {
@@ -19,6 +20,7 @@ private:
     int m_rows;
     int m_columns;
     QMap<int, QVector<int>> m_data;
+    QMap<int, QVector<CustomShape>> shapes;
 };
 
 #endif // CUSTOMTABLE_H

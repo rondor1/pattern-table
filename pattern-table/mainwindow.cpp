@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "customtable.h"
+#include "customshapedelegate.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     table->setColumnValue(6);
     table->populateTable(6,6);
     ui->tableView->setModel(table);
+    //Add delegate here
+    ui->tableView->setItemDelegate(new CustomShapeDelegate(this));
     ui->tableView->horizontalHeader()->setVisible(false);
     ui->rowsSpinBox->setValue(table->rowCount());
     ui->columnsSpinBox->setValue(table->columnCount());
