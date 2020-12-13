@@ -8,10 +8,23 @@ CustomShapeDelegate::CustomShapeDelegate(QObject* parent)
 
 void CustomShapeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    CustomShape customShape = qvariant_cast<CustomShape>(index.data());
+    int x1 = 0;
+    int x2 = 0;
+    int y1 = 0;
+    int y2 = 0;
+    option.rect.getCoords(&x1,&y1, &x2, &y2);
+    QRect size{(option.rect.width() - option.rect.height())/2 +x1 ,y1,option.rect.height(),option.rect.height()};
+    painter->save();
 
-    //Draw custom shape, in this case circle
-    customShape.paint(painter, option.rect, option.palette);
+    painter->setRenderHint(QPainter::Antialiasing, true);
+
+    painter->setPen(Qt::black);
+    painter->setBrush(Qt::green);
+
+    painter->drawEllipse(size);
+    painter->drawText(QPoint((option.rect.width())/2 +x1, (y1+y2)/2), index.data().toString());
+
+    painter->restore();
 
 }
 

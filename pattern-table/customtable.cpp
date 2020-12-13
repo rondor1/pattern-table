@@ -14,8 +14,7 @@ void CustomTable::populateTable(const int& rows, const int& columns)
     {
         for(int j = 0; j < columns; ++j)
         {
-//            m_data[i].push_back(0);
-            shapes[i].push_back(CustomShape());
+            m_data[i].push_back(0);
         }
     }
     return;
@@ -44,7 +43,7 @@ QVariant CustomTable::data(const QModelIndex &index, int role) const
         if((index.column() >= 0 && index.column() < m_columns) &&
            (index.row() >= 0 && index.row() < m_rows))
         {
-            return QVariant::fromValue<QVector<CustomShape>>(shapes[index.row()]);
+            return m_data[index.row()][index.column()];
         }
         else
         {
