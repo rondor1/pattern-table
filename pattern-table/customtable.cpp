@@ -9,12 +9,12 @@ CustomTable::CustomTable(QObject *parent)
 
 void CustomTable::populateTable(const int& rows, const int& columns)
 {
-    shapes.clear();
+    m_data.clear();
     for(int i = 0; i < rows; ++i)
     {
         for(int j = 0; j < columns; ++j)
         {
-            m_data[i].push_back(0);
+            m_data[i].push_back(i*rows+j);
         }
     }
     return;
