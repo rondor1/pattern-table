@@ -1,5 +1,5 @@
 #include "customshapedelegate.h"
-#include "customshape.h"
+#include <QPainter>
 
 CustomShapeDelegate::CustomShapeDelegate(QObject* parent)
 {
@@ -30,8 +30,7 @@ void CustomShapeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize CustomShapeDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    CustomShape customShape = qvariant_cast<CustomShape>(index.data());
-    return customShape.sizeHint();
+    return QStyledItemDelegate::sizeHint(option, index);
 }
 
 QWidget *CustomShapeDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
