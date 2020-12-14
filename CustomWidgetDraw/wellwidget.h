@@ -28,8 +28,8 @@ public:
         void radiusChange(const QString &arg1);
 private:
     WellShape* m_wellShape; //<! Pointer to a class handling drawing
-    int m_rows; //<! Number of drawn rows
-    int m_columns; //<! Number of drawn columns
+    int m_rows = 5; //<! Number of drawn rows
+    int m_columns = 5; //<! Number of drawn columns
     int m_wellSpacing = 15; //<! Presents the distance between two elements
     int m_wellRadius = 30; //<! Standard well radius
 };

@@ -19,6 +19,14 @@ void WellWidget::CalculateColumns()
     m_columns = (this->size().width()-m_wellSpacing)/(m_wellSpacing+m_wellRadius);
 }
 
+void WellWidget::CalculateRadius()
+{
+    auto radius1 = 2*this->size().width() / (3*m_columns + 1);
+    auto radius2 = 2*this->size().height() / (3*m_rows + 1);
+    m_wellRadius = radius1 < radius2 ? radius1 : radius2;
+    m_wellSpacing= m_wellRadius/2;
+}
+
 void WellWidget::CalculateRows()
 {
     m_rows = (this->size().height() - m_wellSpacing)/(m_wellSpacing+m_wellRadius);
@@ -27,12 +35,14 @@ void WellWidget::CalculateRows()
 void WellWidget::SetRowsNum(const int& rows)
 {
     m_rows = rows;
+//    CalculateRows();
 }
 
 
 void WellWidget::SetColsNum(const int &cols)
 {
     m_columns = cols;
+//    CalculateColumns();
 }
 
 int WellWidget::GetRowsNum() const
@@ -53,13 +63,8 @@ int WellWidget::GetWellRadius() const
 
 void WellWidget::paintEvent(QPaintEvent *event)
 {
-    static int numberOfPaints = 0;
-    CalculateColumns();
-    CalculateRows();
-    qDebug() << " Columns: " << m_columns << Qt::endl;
-    qDebug() << " Rows: " << m_rows << Qt::endl;
 
-    qDebug() << " Number of paints : " << numberOfPaints++ << Qt::endl;
+    CalculateRadius();
 
     QPainter painter(this);
     painter.setBrush(Qt::black);
@@ -68,6 +73,7 @@ void WellWidget::paintEvent(QPaintEvent *event)
     painter.drawRect(this->rect());
 
     painter.setBrush(Qt::white);
+
     for(int i = 0; i < m_rows; ++i)
     {
         for(int j = 0; j < m_columns; ++j)

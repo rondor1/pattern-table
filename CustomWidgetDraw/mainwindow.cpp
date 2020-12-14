@@ -11,13 +11,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->radiusSize->setText(QString::number(ui->widget->GetWellRadius()));
     ui->rowsSpinbox->setValue(ui->widget->GetRowsNum());
     ui->columnsSpinbox->setValue(ui->widget->GetColsNum());
+
+    connect(ui->widget, &WellWidget::SetRowsNum, ui->rowsSpinbox, &QSpinBox::setValue);
+    connect(ui->widget, &WellWidget::SetColsNum, ui->columnsSpinbox, &QSpinBox::setValue);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_rowsSpinbox_valueChanged(int arg1)
 {
@@ -28,6 +30,7 @@ void MainWindow::on_rowsSpinbox_valueChanged(int arg1)
 void MainWindow::on_columnsSpinbox_valueChanged(int arg1)
 {
     ui->widget->SetColsNum(arg1);
+    update();
 }
 
 void MainWindow::on_radiusSize_textEdited(const QString &arg1)
