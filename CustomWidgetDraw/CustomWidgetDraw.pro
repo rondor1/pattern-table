@@ -11,10 +11,12 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    wellshape.cpp \
     wellwidget.cpp
 
 HEADERS += \
     mainwindow.h \
+    wellshape.h \
     wellwidget.h
 
 FORMS += \
