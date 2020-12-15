@@ -15,7 +15,10 @@ public:
     int GetRowsNum() const;
     int GetColsNum() const;
     int GetWellRadius() const;
-
+    void SetWellRadius(const int& wellRadius);
+    int GetWellSpacing();
+    void SetWellSpacing(const int& wellSpacing);
+    void SetAntialiasing(const bool& state);
 private:
     void CalculateRows();
     void CalculateColumns();
@@ -32,6 +35,7 @@ private:
     int m_columns = 5; //<! Number of drawn columns
     int m_wellSpacing = 15; //<! Presents the distance between two elements
     int m_wellRadius = 30; //<! Standard well radius
+    bool m_aliasing = false;
 };
 
 #endif // WELLWIDGET_H

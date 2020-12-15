@@ -19,8 +19,8 @@
      <rect>
       <x>610</x>
       <y>10</y>
-      <width>160</width>
-      <height>82</height>
+      <width>171</width>
+      <height>192</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -34,25 +34,55 @@
      <item row="0" column="1">
       <widget class="QSpinBox" name="rowsSpinbox"/>
      </item>
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="columnsSpinbox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Well radius:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="radiusSize"/>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Number of columns:</string>
        </property>
       </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="columnsSpinbox"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Well radius value: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="wellRadiusSpinBox"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Well spacing value:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSpinBox" name="wellSpacingSpinBox"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Current well radius:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="radiusSize"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Current spacing:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="wellSpacing"/>
      </item>
     </layout>
    </widget>
@@ -69,6 +99,32 @@
      <string notr="true">border-color:red</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>220</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Other options</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="antialiasingCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>250</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Antialiasing</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -76,7 +132,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

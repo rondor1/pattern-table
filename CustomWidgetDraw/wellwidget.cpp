@@ -35,14 +35,14 @@ void WellWidget::CalculateRows()
 void WellWidget::SetRowsNum(const int& rows)
 {
     m_rows = rows;
-//    CalculateRows();
+    CalculateRadius();
 }
 
 
 void WellWidget::SetColsNum(const int &cols)
 {
     m_columns = cols;
-//    CalculateColumns();
+    CalculateRadius();
 }
 
 int WellWidget::GetRowsNum() const
@@ -60,6 +60,27 @@ int WellWidget::GetWellRadius() const
     return m_wellRadius;
 }
 
+void WellWidget::SetWellRadius(const int &wellRadius)
+{
+    m_wellRadius = wellRadius;
+    m_wellSpacing = wellRadius/2;
+}
+
+int WellWidget::GetWellSpacing()
+{
+    return m_wellSpacing;
+}
+
+void WellWidget::SetWellSpacing(const int &wellSpacing)
+{
+    m_wellSpacing = wellSpacing;
+    m_wellRadius = 2*wellSpacing;
+}
+
+void WellWidget::SetAntialiasing(const bool &state)
+{
+    m_aliasing = state;
+}
 
 void WellWidget::paintEvent(QPaintEvent *event)
 {
@@ -68,15 +89,19 @@ void WellWidget::paintEvent(QPaintEvent *event)
 
     QPainter painter(this);
     painter.setBrush(Qt::black);
-    painter.setRenderHint(QPainter::Antialiasing);
+
+    if(m_aliasing)
+    {
+        painter.setRenderHint(QPainter::Antialiasing);
+    }
 
     painter.drawRect(this->rect());
 
     painter.setBrush(Qt::white);
 
-    for(int i = 0; i < m_rows; ++i)
+    for(auto i = 0; i < m_rows; ++i)
     {
-        for(int j = 0; j < m_columns; ++j)
+        for(auto j = 0; j < m_columns; ++j)
         {
             m_wellShape->DrawWells(&painter,
                                    {m_wellSpacing+j*m_wellSpacing + j* m_wellRadius,

@@ -24,6 +24,12 @@ private slots:
 
     void on_radiusSize_textEdited(const QString &arg1);
 
+    void on_wellRadiusSpinBox_valueChanged(int arg1);
+
+    void on_wellSpacingSpinBox_valueChanged(int arg1);
+
+    void on_antialiasingCheckBox_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 
