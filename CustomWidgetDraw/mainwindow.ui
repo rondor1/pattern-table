@@ -19,7 +19,7 @@
      <rect>
       <x>610</x>
       <y>10</y>
-      <width>171</width>
+      <width>185</width>
       <height>192</height>
      </rect>
     </property>
@@ -32,7 +32,11 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QSpinBox" name="rowsSpinbox"/>
+      <widget class="QSpinBox" name="rowsSpinbox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -42,7 +46,11 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QSpinBox" name="columnsSpinbox"/>
+      <widget class="QSpinBox" name="columnsSpinbox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+      </widget>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_4">
@@ -52,7 +60,14 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QSpinBox" name="wellRadiusSpinBox"/>
+      <widget class="QSpinBox" name="wellRadiusSpinBox">
+       <property name="minimum">
+        <number>2</number>
+       </property>
+       <property name="maximum">
+        <number>1000</number>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_6">
@@ -62,7 +77,14 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QSpinBox" name="wellSpacingSpinBox"/>
+      <widget class="QSpinBox" name="wellSpacingSpinBox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>500</number>
+       </property>
+      </widget>
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_3">

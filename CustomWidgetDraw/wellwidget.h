@@ -19,23 +19,26 @@ public:
     int GetWellSpacing();
     void SetWellSpacing(const int& wellSpacing);
     void SetAntialiasing(const bool& state);
+
 private:
     void CalculateRows();
     void CalculateColumns();
     void CalculateRadius();
+    void CalculateOptimalWellPlate();
+    void CalculateInitialWellPlateSize();
+    void CalculateInitialRadiusSize();
 protected:
     void paintEvent(QPaintEvent* painter);
 
-public:
-    signals:
-        void radiusChange(const QString &arg1);
 private:
     WellShape* m_wellShape; //<! Pointer to a class handling drawing
-    int m_rows = 5; //<! Number of drawn rows
-    int m_columns = 5; //<! Number of drawn columns
-    int m_wellSpacing = 15; //<! Presents the distance between two elements
-    int m_wellRadius = 30; //<! Standard well radius
-    bool m_aliasing = false;
+    int m_rows = 1; //<! Number of drawn rows
+    int m_columns = 1; //<! Number of drawn columns
+    int m_wellSpacing; //<! Presents the distance between two elements
+    int m_wellRadius; //<! Standard well radius
+    bool m_aliasing = false; //<! Antialiasing flag
+    int m_wellPlateWidth;//<! Width of the plate on which wells will be drawn
+    int m_wellPlateHeight; //<! Height of the plate on which wells will be drawn
 };
 
 #endif // WELLWIDGET_H

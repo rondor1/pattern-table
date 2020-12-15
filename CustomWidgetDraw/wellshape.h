@@ -8,6 +8,7 @@ class WellShape
 {
 public:
     WellShape();
+    void DrawWellPlate(QPainter *painter, const QRect &windowDimension);
     void DrawWells(QPainter *painter, const QRect &windowDimension);
 
 };

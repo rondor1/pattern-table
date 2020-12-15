@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "wellshape.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,20 +9,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->antialiasingCheckBox->toggled(false);
 
-    ui->rowsSpinbox->setMinimum(1);
-    ui->columnsSpinbox->setMinimum(1);
-
-    ui->wellRadiusSpinBox->setMinimum(2);
-    ui->wellSpacingSpinBox->setMinimum(1);
-
-    ui->radiusSize->setText(QString::number(ui->widget->GetWellRadius()));
     ui->rowsSpinbox->setValue(ui->widget->GetRowsNum());
     ui->columnsSpinbox->setValue(ui->widget->GetColsNum());
 
-    ui->radiusSize->setText(QString::number(ui->widget->GetWellRadius()));
-
     connect(ui->widget, &WellWidget::SetRowsNum, ui->rowsSpinbox, &QSpinBox::setValue);
     connect(ui->widget, &WellWidget::SetColsNum, ui->columnsSpinbox, &QSpinBox::setValue);
+
+    ui->wellRadiusSpinBox->setValue(ui->widget->GetWellRadius());
+    ui->wellSpacingSpinBox->setValue(ui->widget->GetWellSpacing());
 }
 
 MainWindow::~MainWindow()
@@ -36,6 +29,8 @@ void MainWindow::on_rowsSpinbox_valueChanged(int arg1)
     ui->widget->SetRowsNum(arg1);
     ui->radiusSize->setText(QString::number(ui->widget->GetWellRadius()));
     ui->wellSpacing->setText(QString::number(ui->widget->GetWellSpacing()));
+    ui->wellRadiusSpinBox->setValue(ui->widget->GetWellRadius());
+    ui->wellSpacingSpinBox->setValue(ui->widget->GetWellSpacing());
     update();
 }
 
@@ -44,6 +39,8 @@ void MainWindow::on_columnsSpinbox_valueChanged(int arg1)
     ui->widget->SetColsNum(arg1);
     ui->radiusSize->setText(QString::number(ui->widget->GetWellRadius()));
     ui->wellSpacing->setText(QString::number(ui->widget->GetWellSpacing()));
+    ui->wellRadiusSpinBox->setValue(ui->widget->GetWellRadius());
+    ui->wellSpacingSpinBox->setValue(ui->widget->GetWellSpacing());
     update();
 }
 
