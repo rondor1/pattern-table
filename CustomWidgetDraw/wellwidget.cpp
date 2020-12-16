@@ -147,3 +147,8 @@ void WellWidget::paintEvent(QPaintEvent *event)
         }
     }
 }
+
+QSize WellWidget::minimumSizeHint() const
+{
+    return QSize(500,500);
+}

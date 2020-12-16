@@ -17,6 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->wellRadiusSpinBox->setValue(ui->widget->GetWellRadius());
     ui->wellSpacingSpinBox->setValue(ui->widget->GetWellSpacing());
+
+    ui->formLayout->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
+
 }
 
 MainWindow::~MainWindow()

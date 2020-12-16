@@ -29,7 +29,7 @@ private:
     void CalculateInitialRadiusSize();
 protected:
     void paintEvent(QPaintEvent* painter);
-
+    QSize minimumSizeHint() const;
 private:
     WellShape* m_wellShape; //<! Pointer to a class handling drawing
     int m_rows = 1; //<! Number of drawn rows
